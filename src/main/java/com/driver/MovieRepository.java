@@ -6,14 +6,14 @@ import java.util.*;
 @Repository
 public class MovieRepository {
 
-    HashMap<String, Movie> movieHashMap;
-    HashMap<String, Director> directorHashMap;
-    HashMap<String, List<String>> pairOfMovieDirector;
+   private HashMap<String, Movie> movieHashMap;
+   private HashMap<String, Director> directorHashMap;
+   private HashMap<String, List<String>> pairOfMovieDirector;
 
     public MovieRepository() {
-        this.movieHashMap = new HashMap<>();
-        this.directorHashMap = new HashMap<>();
-        this.pairOfMovieDirector = new HashMap<>();
+        this.movieHashMap = new  HashMap<String, Movie>();
+        this.directorHashMap = new HashMap<String, Director>();
+        this.pairOfMovieDirector = new HashMap<String, List<String>>();
     }
 
     public void saveMovie(Movie movie) {
