@@ -30,9 +30,10 @@ public class MovieRepository {
             if (pairOfMovieDirector.containsKey(director)) {
                 currMovies = pairOfMovieDirector.get(director);
                 currMovies.add(movie);
+            }
                 pairOfMovieDirector.put(director, currMovies);
             }
-        }
+
     }
     public Movie findmovie(String movie_name){
         return movieHashMap.get(movie_name);
