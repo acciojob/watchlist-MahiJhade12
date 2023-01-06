@@ -3,19 +3,19 @@ package com.driver;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
-@Repository
+
+/*@Repository
 public class MovieRepository {
 
    private HashMap<String, Movie> movieHashMap;
    private HashMap<String, Director> directorHashMap;
    private HashMap<String, List<String>> pairOfMovieDirector;
 
-    public MovieRepository() {
-        this.movieHashMap = new  HashMap<String, Movie>();
+    public MovieRepository(){
+        this.movieHashMap = new HashMap<String, Movie>();
         this.directorHashMap = new HashMap<String, Director>();
         this.pairOfMovieDirector = new HashMap<String, List<String>>();
     }
-
     public void saveMovie(Movie movie) {
         movieHashMap.put(movie.getName(), movie);
     }
@@ -52,40 +52,7 @@ public class MovieRepository {
     public List<String> getAllMovie(){
         return new ArrayList<>(movieHashMap.keySet());
     }
-  /*  public void deleteDiector(String director_name){
-        List<String> currList=new ArrayList<>();
-        if(pairOfMovieDirector.containsKey(director_name)) {
-            currList=pairOfMovieDirector.get(director_name);
 
-            for(String movie: currList){
-                if(movieHashMap.containsKey(movie)){
-                    movieHashMap.remove(movie);
-                }
-            }
-                pairOfMovieDirector.remove(director_name);
-            }
-        if (directorHashMap.containsKey(director_name)){
-            directorHashMap.remove(director_name);
-        }
-
-    }
-   public void  deleteAllDirectorMovie(){
-       HashSet<String> movieSet=new HashSet<>();
-       directorHashMap = new HashMap<>();
-       for(String director:pairOfMovieDirector.keySet()){
-           for(String movie:pairOfMovieDirector.get(director)){
-             movieSet.add(movie);
-           }
-       }
-       for (String movie:movieSet){
-           if(movieHashMap.containsKey(movie)){
-               movieHashMap.remove(movie);
-           }
-       }
-        pairOfMovieDirector = new HashMap<>();
-    }
-
-   */
   public void deleteDiector(String director){
 
       List<String> movies = new ArrayList<String>();
@@ -129,7 +96,7 @@ public class MovieRepository {
     }
 
 }
-/*
+*/
 @Repository
 public class MovieRepository {
 
@@ -243,4 +210,4 @@ public class MovieRepository {
         //clearing the pair.
         directorMovieMapping = new HashMap<>();
     }
-}*/
+}
