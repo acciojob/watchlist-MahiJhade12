@@ -3,7 +3,7 @@ package com.driver;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
-@Repository
+/*@Repository
 public class MovieRepository {
 
     HashMap<String, Movie> movieHashMap;
@@ -85,7 +85,7 @@ public class MovieRepository {
     }
 
 }
-/*
+*/
 @Repository
 public class MovieRepository {
 
@@ -112,7 +112,7 @@ public class MovieRepository {
         directorMap.put(director.getName(), director);
     }
 
-    public void saveMovieDirectorPair(String movie, String director){
+    public void saveDirectorMovePair(String movie, String director){
 
         //1. Add the movie into Datbase ---> WRONG bcz I dont have te movie object
 
@@ -131,7 +131,7 @@ public class MovieRepository {
 
     }
 
-    public Movie findMovie(String movie){
+    public Movie findmovie(String movie){
         return movieMap.get(movie);
     }
 
@@ -139,17 +139,17 @@ public class MovieRepository {
         return directorMap.get(director);
     }
 
-    public List<String> findMoviesFromDirector(String director){
+    public List<String> getAllMovieByDirectorName(String director){
         List<String> moviesList = new ArrayList<String>();
         if(directorMovieMapping.containsKey(director)) moviesList = directorMovieMapping.get(director);
         return moviesList;
     }
 
-    public List<String> findAllMovies(){
+    public List<String> getAllMovie(){
         return new ArrayList<>(movieMap.keySet());
     }
 
-    public void deleteDirector(String director){
+    public void deleteDiector(String director){
 
         List<String> movies = new ArrayList<String>();
         if(directorMovieMapping.containsKey(director)){
@@ -173,7 +173,7 @@ public class MovieRepository {
         }
     }
 
-    public void deleteAllDirector(){
+    public void deleteAllDirectorMovie(){
 
         HashSet<String> moviesSet = new HashSet<String>();
 
@@ -198,4 +198,4 @@ public class MovieRepository {
         //clearing the pair.
         directorMovieMapping = new HashMap<>();
     }
-}*/
+}
