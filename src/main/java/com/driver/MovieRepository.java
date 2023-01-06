@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-/*@Repository
+@Repository
 public class MovieRepository {
 
    private HashMap<String, Movie> movieHashMap;
@@ -24,17 +24,25 @@ public class MovieRepository {
         directorHashMap.put(director.getName(), director);
     }
 
-    public void saveDirectorMovePair(String movie, String director) {
-        if (movieHashMap.containsKey(movie) && directorHashMap.containsKey(director)) {
-            List<String> currMovies = new ArrayList<>();
-            if (pairOfMovieDirector.containsKey(director)) {
-                currMovies = pairOfMovieDirector.get(director);
-                currMovies.add(movie);
-            }
-                pairOfMovieDirector.put(director, currMovies);
-            }
+  public void saveDirectorMovePair(String movie, String director){
+
+        //1. Add the movie into Datbase ---> WRONG bcz I dont have te movie object
+
+        if(movieHashMap.containsKey(movie)&&directorHashMap.containsKey(director)){
+
+            List<String> currentMoviesByDirector = new ArrayList<>();
+
+            if(pairOfMovieDirector.containsKey(director))
+                currentMoviesByDirector = pairOfMovieDirector.get(director);
+
+            currentMoviesByDirector.add(movie);
+
+            pairOfMovieDirector.put(director,currentMoviesByDirector);
+
+        }
 
     }
+
     public Movie findmovie(String movie_name){
         return movieHashMap.get(movie_name);
     }
@@ -96,7 +104,7 @@ public class MovieRepository {
     }
 
 }
-*/
+/*
 @Repository
 public class MovieRepository {
 
@@ -114,6 +122,7 @@ public class MovieRepository {
         this.directorMap = new HashMap<String, Director>();
         this.directorMovieMapping = new HashMap<String, List<String>>();
     }
+
 
     public void saveMovie(Movie movie){
         movieMap.put(movie.getName(), movie);
@@ -210,4 +219,4 @@ public class MovieRepository {
         //clearing the pair.
         directorMovieMapping = new HashMap<>();
     }
-}
+}*/
