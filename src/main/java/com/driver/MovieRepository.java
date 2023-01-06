@@ -16,15 +16,15 @@ public class MovieRepository {
         this.pairOfMovieDirector = new HashMap<>();
     }
 
-    public void addMoie(Movie movie) {
+    public void saveMovie(Movie movie) {
         movieHashMap.put(movie.getName(), movie);
     }
 
-    public void addDirector(Director director) {
+    public void saveDirector(Director director) {
         directorHashMap.put(director.getName(), director);
     }
 
-    public void addDirectorMovePair(String movie, String director) {
+    public void saveDirectorMovePair(String movie, String director) {
         if (movieHashMap.containsKey(movie) && directorHashMap.containsKey(director)) {
             List<String> currMovies = new ArrayList<>();
             if (pairOfMovieDirector.containsKey(director)) {
@@ -41,13 +41,13 @@ public class MovieRepository {
         return directorHashMap.get(name);
     }
 
-    public List<String> getAllMovie(String name){
+    public List<String> getAllMovieByDirectorName(String name){
         if(pairOfMovieDirector.containsKey(name)) {
             return pairOfMovieDirector.get(name);
         }
         return null;
     }
-    public List<String> gettAllMovie(){
+    public List<String> getAllMovie(){
         return new ArrayList<>(movieHashMap.keySet());
     }
     public void deleteDiector(String name){
