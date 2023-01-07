@@ -29,8 +29,7 @@ public class MovieRepository {
             List<String> currMovies = new ArrayList<>();
             if (pairOfMovieDirector.containsKey(director))
                 currMovies = pairOfMovieDirector.get(director);
-            currMovies.add(movie);
-
+                currMovies.add(movie);
             pairOfMovieDirector.put(director, currMovies);
         }
     }
@@ -95,4 +94,18 @@ public class MovieRepository {
         pairOfMovieDirector = new HashMap<>();
     }
 
+    public String findDirectorByMovieName(String movie_name){
+
+        for(String director: pairOfMovieDirector.keySet()){
+            //Iterating in the list of movies by a director.
+            HashSet<String> moviesSet = new HashSet<String>();
+            for(String movie: pairOfMovieDirector.get(director)){
+                moviesSet.add(movie);
+                if (moviesSet.contains(movie_name)){
+                    return director;
+                  }
+            }
+        }
+        return "director does not exist";
+    }
 }
